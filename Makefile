@@ -1,4 +1,4 @@
-.PHONY: toto
+.PHONY:	toto
 toto:
-	echo "Coucou !"
-	dune exec check/check.exe
+	echo	"Coucou !"
+	dune	exec	check/check.exe
