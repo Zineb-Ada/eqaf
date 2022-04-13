@@ -473,5 +473,18 @@ let () =
   Fmt.pr "%d trial(s) for Eqaf.find_uint8.\n%!" _3 ;
   let _4 = _4 1 in
   Fmt.pr "%d trial(s) for Eqaf.divmod.\n%!" _3 ;
-
+  Fmt.pr {|{
+    "results": [
+      {
+        "name": "eqaf",
+        "metrics": [
+            {"name": "equal", "value": %d },
+            {"name": "compare", "value": %d},
+            {"name": "exists", "value": %d},
+            {"name": "find_uint8", "value": %d},
+            {"name": "divmod", "value": %d}
+        ]
+      }
+    ]
+  }|}  _0 _1 _2 _3 _4;
   exit exit_success
