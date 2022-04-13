@@ -465,14 +465,64 @@ let () =
 
   let _0 = _0 1 in
   Fmt.pr "%d trial(s) for Eqaf.equal.\n%!" _0 ;
+  Fmt.pr {|{
+    "results": [
+      {
+        "name": "eqaf",
+        "metrics": [
+            {"name": "equal", "value": %d }
+        ]
+      }
+    ]
+  }|}  _0;
   let _1 = _1 1 in
   Fmt.pr "%d trial(s) for Eqaf.compare.\n%!" _1 ;
+  Fmt.pr {|{
+    "results": [
+      {
+        "name": "eqaf",
+        "metrics": [
+            {"name": "compare", "value": %d}
+        ]
+      }
+    ]
+  }|}  _1;
   let _2 = _2 1 in
   Fmt.pr "%d trial(s) for Eqaf.exists.\n%!" _2 ;
+  Fmt.pr {|{
+    "results": [
+      {
+        "name": "eqaf",
+        "metrics": [
+            {"name": "exists", "value": %d}
+        ]
+      }
+    ]
+  }|}  _2;
   let _3 = _3 1 in
   Fmt.pr "%d trial(s) for Eqaf.find_uint8.\n%!" _3 ;
+  Fmt.pr {|{
+    "results": [
+      {
+        "name": "eqaf",
+        "metrics": [
+            {"name": "find_uint8", "value": %d}
+        ]
+      }
+    ]
+  }|} _3;
   let _4 = _4 1 in
-  Fmt.pr "%d trial(s) for Eqaf.divmod.\n%!" _3 ;
+  Fmt.pr "%d trial(s) for Eqaf.divmod.\n%!" _4 ;
+  Fmt.pr {|{
+    "results": [
+      {
+        "name": "eqaf",
+        "metrics": [
+            {"name": "divmod", "value": %d}
+        ]
+      }
+    ]
+  }|} _4;
   Fmt.pr {|{
     "results": [
       {
