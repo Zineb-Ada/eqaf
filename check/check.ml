@@ -463,74 +463,35 @@ let () =
     let res = Divmod32.test () in
     if res = exit_success then tried else _4 (succ tried) in
 
-  let _0 = _0 1 in
-  Fmt.pr "%d trial(s) for Eqaf.equal.\n%!" _0 ;
-  let equal = Fmt.str {|{"name": "equal", "value": %d }|} _0 in
-  Fmt.pr {|{
+  let pr_bench name value = Fmt.pr {|{
     "results": [
       {
-        "name": "eqaf",
+        "name": %s,
         "metrics": [
-            %s 
+          {"name": "equal", "value": %d }
         ]
       }
     ]
-  }|}  equal;
+  }|}  name value in
+
+  let _0 = _0 1 in
+  Fmt.pr "%d trial(s) for Eqaf.equal.\n%!" _0 ;
+  pr_bench "equal" _0;
 
   let _1 = _1 1 in
   Fmt.pr "%d trial(s) for Eqaf.compare.\n%!" _1 ;
-  let compare = Fmt.str {|{"name": "compare", "value": %d}|} _1 in
-  Fmt.pr {|{
-    "results": [
-      {
-        "name": "eqaf",
-        "metrics": [
-            %s
-        ]
-      }
-    ]
-  }|}  compare;
+  pr_bench "compare" _1;
 
   let _2 = _2 1 in
   Fmt.pr "%d trial(s) for Eqaf.exists.\n%!" _2;
-  let exists = Fmt.str {|{"name": "exists", "value": %d}|} _2 in
-  Fmt.pr {|{
-    "results": [
-      {
-        "name": "eqaf",
-        "metrics": [
-            %s
-        ]
-      }
-    ]
-  }|}  exists;
+  pr_bench "exists" _2;
 
   let _3 = _3 1 in
   Fmt.pr "%d trial(s) for Eqaf.find_uint8.\n%!" _3;
-  let find_uint8 = Fmt.str {|{"name": "find_uint8", "value": %d}|} _2 in
-  Fmt.pr {|{
-    "results": [
-      {
-        "name": "eqaf",
-        "metrics": [
-            %s
-        ]
-      }
-    ]
-  }|} find_uint8;
+  pr_bench "find_uint8" _3;
 
   let _4 = _4 1 in
   Fmt.pr "%d trial(s) for Eqaf.divmod.\n%!" _4;
-  let divmod = Fmt.str {|{"name": "divmod", "value": %d}|} _4 in
-  Fmt.pr {|{
-    "results": [
-      {
-        "name": "eqaf",
-        "metrics": [
-            %s
-        ]
-      }
-    ]
-  }|} divmod;
+  pr_bench "divmod" _4;
 
   exit exit_success
