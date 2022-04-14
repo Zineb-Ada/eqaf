@@ -463,7 +463,8 @@ let () =
     let res = Divmod32.test () in
     if res = exit_success then tried else _4 (succ tried) in
 
-  let pr_bench name value = Fmt.pr {|{
+  let pr_bench name value = 
+    Fmt.pr {|{
       "results": [
         {
           "name": %s,
