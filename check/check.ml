@@ -465,76 +465,86 @@ let () =
 
   let _0 = _0 1 in
   Fmt.pr "%d trial(s) for Eqaf.equal.\n%!" _0 ;
+  let equal = Fmt.str {|{"name": "equal", "value": %d }|} _0 in
   Fmt.pr {|{
     "results": [
       {
         "name": "eqaf",
         "metrics": [
-            {"name": "equal", "value": %d }
+            %s 
         ]
       }
     ]
-  }|}  _0;
+  }|}  equal;
+
   let _1 = _1 1 in
   Fmt.pr "%d trial(s) for Eqaf.compare.\n%!" _1 ;
+  let compare = Fmt.str {|{"name": "compare", "value": %d}|} _1 in
   Fmt.pr {|{
     "results": [
       {
         "name": "eqaf",
         "metrics": [
-            {"name": "compare", "value": %d}
+            %s
         ]
       }
     ]
-  }|}  _1;
+  }|}  compare;
+
   let _2 = _2 1 in
-  Fmt.pr "%d trial(s) for Eqaf.exists.\n%!" _2 ;
+  Fmt.pr "%d trial(s) for Eqaf.exists.\n%!" _2;
+  let exists = Fmt.str {|{"name": "exists", "value": %d}|} _2 in
   Fmt.pr {|{
     "results": [
       {
         "name": "eqaf",
         "metrics": [
-            {"name": "exists", "value": %d}
+            %s
         ]
       }
     ]
-  }|}  _2;
+  }|}  exists;
+
   let _3 = _3 1 in
-  Fmt.pr "%d trial(s) for Eqaf.find_uint8.\n%!" _3 ;
+  Fmt.pr "%d trial(s) for Eqaf.find_uint8.\n%!" _3;
+  let find_uint8 = Fmt.str {|{"name": "find_uint8", "value": %d}|} _2 in
   Fmt.pr {|{
     "results": [
       {
         "name": "eqaf",
         "metrics": [
-            {"name": "find_uint8", "value": %d}
+            %s
         ]
       }
     ]
-  }|} _3;
+  }|} find_uint8;
+
   let _4 = _4 1 in
-  Fmt.pr "%d trial(s) for Eqaf.divmod.\n%!" _4 ;
+  Fmt.pr "%d trial(s) for Eqaf.divmod.\n%!" _4;
+  let divmod = Fmt.str {|{"name": "divmod", "value": %d}|} _4 in
   Fmt.pr {|{
     "results": [
       {
         "name": "eqaf",
         "metrics": [
-            {"name": "divmod", "value": %d}
+            %s
         ]
       }
     ]
-  }|} _4;
+  }|} divmod;
+  
   Fmt.pr {|{
     "results": [
       {
         "name": "eqaf",
         "metrics": [
-            {"name": "equal", "value": %d },
-            {"name": "compare", "value": %d},
-            {"name": "exists", "value": %d},
-            {"name": "find_uint8", "value": %d},
-            {"name": "divmod", "value": %d}
+            %s
+            %s
+            %s
+            %s
+            %s
         ]
       }
     ]
-  }|}  _0 _1 _2 _3 _4;
+  }|}  equal compare exists find_uint8 divmod;
   exit exit_success
