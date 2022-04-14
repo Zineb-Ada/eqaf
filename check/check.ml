@@ -464,16 +464,7 @@ let () =
     if res = exit_success then tried else _4 (succ tried) in
 
   let pr_bench name value = 
-    Fmt.pr {|{
-      "results": [
-        {
-          "name": %s,
-          "metrics": [
-            {"name": "equal", "value": %d }
-          ]
-        }
-      ]
-    }|}  name value in
+    Fmt.pr {|{"results": [{"name": %s, "metrics": [{"name": "equal", "value": %d }]}]}|} name value in
 
   let _0 = _0 1 in
   Fmt.pr "%d trial(s) for Eqaf.equal.\n%!" _0 ;
