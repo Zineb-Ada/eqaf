@@ -532,19 +532,5 @@ let () =
       }
     ]
   }|} divmod;
-  
-  Fmt.pr {|{
-    "results": [
-      {
-        "name": "eqaf",
-        "metrics": [
-            %s
-            %s
-            %s
-            %s
-            %s
-        ]
-      }
-    ]
-  }|}  equal compare exists find_uint8 divmod;
+
   exit exit_success
