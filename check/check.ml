@@ -464,15 +464,15 @@ let () =
     if res = exit_success then tried else _4 (succ tried) in
 
   let pr_bench name value = Fmt.pr {|{
-    "results": [
-      {
-        "name": %s,
-        "metrics": [
-          {"name": "equal", "value": %d }
-        ]
-      }
-    ]
-  }|}  name value in
+      "results": [
+        {
+          "name": %s,
+          "metrics": [
+            {"name": "equal", "value": %d }
+          ]
+        }
+      ]
+    }|}  name value in
 
   let _0 = _0 1 in
   Fmt.pr "%d trial(s) for Eqaf.equal.\n%!" _0 ;
@@ -483,15 +483,15 @@ let () =
   pr_bench "compare" _1;
 
   let _2 = _2 1 in
-  Fmt.pr "%d trial(s) for Eqaf.exists.\n%!" _2;
+  Fmt.pr "%d trial(s) for Eqaf.exists.\n%!" _2 ;
   pr_bench "exists" _2;
 
   let _3 = _3 1 in
-  Fmt.pr "%d trial(s) for Eqaf.find_uint8.\n%!" _3;
+  Fmt.pr "%d trial(s) for Eqaf.find_uint8.\n%!" _3 ;
   pr_bench "find_uint8" _3;
 
   let _4 = _4 1 in
-  Fmt.pr "%d trial(s) for Eqaf.divmod.\n%!" _4;
+  Fmt.pr "%d trial(s) for Eqaf.divmod.\n%!" _4 ;
   pr_bench "divmod" _4;
 
   exit exit_success

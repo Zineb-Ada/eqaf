@@ -25,5 +25,4 @@ depends: [
   "alcotest"       {with-test}
   "crowbar"        {with-test}
   "fmt"            {with-test & >= "0.8.7"}
-
 ]
