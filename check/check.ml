@@ -311,10 +311,15 @@ module Equal = Make(struct
   let reset = ignore and switch = ignore
 
   let stdlib_true () = String.equal hash_eq_0 hash_eq_1
-  let stdlib_false () = String.equal hash_neq_0 hash_neq_1
-  
+  let stdlib_false () = 
+    for _ = 1 to 100 do 
+      let _ = String.equal hash_neq_0 hash_neq_1 in ()
+    done;
+    String.equal hash_neq_0 hash_neq_1
+
   let eqaf_true () = Eqaf.equal hash_eq_0 hash_eq_1
   let eqaf_false () = Eqaf.equal hash_neq_0 hash_neq_1
+  
 end)
 
 module Compare = Make(struct
@@ -326,10 +331,27 @@ module Compare = Make(struct
   let reset = ignore and switch = ignore
 
   let stdlib_true () = String.compare hash_eq_0 hash_eq_1
-  let stdlib_false () = String.compare hash_neq_0 hash_neq_1
+  let stdlib_false () = 
+    for _ = 1 to 100 do 
+      let _ = String.compare hash_neq_0 hash_neq_1 in ()
+    done;
+    String.compare hash_neq_0 hash_neq_1 
+
   
-  let eqaf_true () = Eqaf.compare_be hash_eq_0 hash_eq_1
+  let eqaf_true () = Eqaf.compare_be hash_eq_0 hash_eq_1 
   let eqaf_false () = Eqaf.compare_be hash_neq_0 hash_neq_1
+   
+  (* let rec eqaf_false s = 
+    match s with 
+    |1 -> Eqaf.compare_be hash_neq_0 hash_neq_1
+    |e -> let _ = eqaf_false (e-1) in Eqaf.compare_be hash_neq_0 hash_neq_1  *)
+  
+  (* let eqaf_false s = 
+    for _ = 1 to s do 
+      let _ = Eqaf.compare_be hash_neq_0 hash_neq_1 in ()
+    done;
+    let v = Eqaf.compare_be hash_neq_0 hash_neq_1 in v
+  let eqaf_false () = eqaf_false 1000 *)
 end)
 
 module Exists = Make(struct
@@ -467,11 +489,22 @@ let () =
   Fmt.pr "%d trial(s) for Eqaf.equal.\n%!" _0 ;
   let _1 = _1 1 in
   Fmt.pr "%d trial(s) for Eqaf.compare.\n%!" _1 ;
+<<<<<<< Updated upstream
   let _2 = _2 1 in
+=======
+  pr_bench "compare" _1 ;
+
+  (* let _2 = _2 1 in
+>>>>>>> Stashed changes
   Fmt.pr "%d trial(s) for Eqaf.exists.\n%!" _2 ;
   let _3 = _3 1 in
   Fmt.pr "%d trial(s) for Eqaf.find_uint8.\n%!" _3 ;
   let _4 = _4 1 in
+<<<<<<< Updated upstream
   Fmt.pr "%d trial(s) for Eqaf.divmod.\n%!" _3 ;
+=======
+  Fmt.pr "%d trial(s) for Eqaf.divmod.\n%!" _4 ;
+  pr_bench "divmod" _4 ; *)
+>>>>>>> Stashed changes
 
   exit exit_success
