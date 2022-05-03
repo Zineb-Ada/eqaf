@@ -407,7 +407,6 @@ module Divmod32 = Make(struct
   let int32_rem_unsigned n d =
     Int32.sub n (Int32.mul (int32_div_unsigned n d) d)
 
-  (* TODO *)
   let stdlib_true () =
     let x, m = int32_into_hash_eq_0, int14_into_hash_eq_0 in
     int32_div_unsigned x m,
